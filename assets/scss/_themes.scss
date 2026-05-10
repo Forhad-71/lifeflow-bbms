@@ -1,0 +1,225 @@
+// =============================================
+//   LifeFlow Blood Bank - Theme System
+//   Smooth Day/Night Mode Transitions
+// =============================================
+
+// CSS Custom Properties for theming
+:root {
+    // Dark mode (default)
+    --bg-dark: #{$dark-bg};
+    --bg-secondary: #{$dark-secondary};
+    --bg-card: #{$dark-card};
+    --bg-glass: #{$dark-glass};
+    --card-bg: #{$dark-card};
+    
+    --text-primary: #{$dark-text};
+    --text-secondary: #{$dark-text-secondary};
+    --text-muted: #{$dark-text-muted};
+    
+    --divider: #{$dark-divider};
+    --input-bg: #{$dark-input-bg};
+    --input-border: #{$dark-divider};
+    --navbar-bg: #{$dark-navbar-bg};
+    
+    --shadow-sm: #{$shadow-sm};
+    --shadow-md: #{$shadow-md};
+    --shadow-lg: #{$shadow-lg};
+    --shadow-glow: #{$shadow-glow};
+    
+    // Static colors
+    --primary: #{$primary};
+    --primary-dark: #{$primary-dark};
+    --primary-light: #{$primary-light};
+    --accent: #{$accent};
+    --success: #{$success};
+    --warning: #{$warning};
+    --danger: #{$danger};
+    --info: #{$info};
+    
+    --radius-sm: #{$radius-sm};
+    --radius-md: #{$radius-md};
+    --radius-lg: #{$radius-lg};
+    --radius-xl: #{$radius-xl};
+    
+    --transition-fast: #{$transition-fast};
+    --transition-normal: #{$transition-normal};
+}
+
+// ==================== LIGHT MODE - Smooth Colors ====================
+[data-theme="light"] {
+    --bg-dark: #{$light-bg};
+    --bg-secondary: #{$light-secondary};
+    --bg-card: #{$light-card};
+    --bg-glass: #{$light-glass};
+    --card-bg: #{$light-card};
+    
+    --text-primary: #{$light-text};
+    --text-secondary: #{$light-text-secondary};
+    --text-muted: #{$light-text-muted};
+    
+    --divider: #{$light-divider};
+    --input-bg: #{$light-input-bg};
+    --input-border: #{$light-divider};
+    --navbar-bg: #{$light-navbar-bg};
+    
+    --shadow-sm: #{$light-shadow-sm};
+    --shadow-md: #{$light-shadow-md};
+    --shadow-lg: #{$light-shadow-lg};
+    --shadow-glow: 0 0 30px rgba(196, 30, 58, 0.15);
+}
+
+// Light mode body
+[data-theme="light"] body {
+    background: linear-gradient(135deg, $light-bg 0%, #eef2f7 100%) !important;
+    color: $light-text !important;
+}
+
+// Light mode - Navbar
+[data-theme="light"] .navbar {
+    background: $light-navbar-bg !important;
+    border-bottom: 1px solid $light-divider !important;
+    box-shadow: $light-shadow-sm !important;
+    
+    .navbar__logo span,
+    .navbar__menu a,
+    .navbar__user span {
+        color: $light-text !important;
+    }
+    
+    .navbar__menu a:hover {
+        color: $primary !important;
+        background: rgba(0, 0, 0, 0.04) !important;
+    }
+}
+
+// Light mode - Cards
+[data-theme="light"] {
+    .card,
+    .post-card,
+    .stat-card,
+    .stock-card,
+    .feature-card {
+        background: $light-card !important;
+        border: 1px solid $light-divider !important;
+        box-shadow: $light-shadow-sm !important;
+        color: $light-text !important;
+    }
+}
+
+// Light mode - Inputs
+[data-theme="light"] {
+    input,
+    textarea,
+    select {
+        background: $light-input-bg !important;
+        border-color: $light-divider !important;
+        color: $light-text !important;
+        
+        &::placeholder {
+            color: $light-text-muted !important;
+        }
+        
+        &:focus {
+            background: white !important;
+            border-color: $primary !important;
+        }
+    }
+}
+
+// Light mode - Buttons
+[data-theme="light"] {
+    .btn--glass,
+    .btn--outline {
+        background: rgba(0, 0, 0, 0.03) !important;
+        border-color: $light-divider !important;
+        color: $light-text !important;
+        
+        &:hover {
+            background: rgba(0, 0, 0, 0.06) !important;
+        }
+    }
+}
+
+// Light mode - Comments
+[data-theme="light"] {
+    .comment-bubble {
+        background: $light-input-bg !important;
+        
+        .name {
+            color: $light-text !important;
+        }
+        .text {
+            color: $light-text-secondary !important;
+        }
+    }
+    
+    .comment-input {
+        background: $light-input-bg !important;
+        border-color: $light-divider !important;
+        color: $light-text !important;
+    }
+}
+
+// Light mode - Hero
+[data-theme="light"] {
+    .hero {
+        background: linear-gradient(135deg, #ffffff 0%, $light-bg 100%) !important;
+        
+        h1, h2, h3, p {
+            color: $light-text !important;
+        }
+    }
+}
+
+// Light mode - Footer
+[data-theme="light"] {
+    .footer {
+        background: white !important;
+        border-top: 1px solid $light-divider !important;
+        
+        p, a, h4 {
+            color: $light-text !important;
+        }
+        
+        a:hover {
+            color: $primary !important;
+        }
+    }
+}
+
+// Light mode - Tables
+[data-theme="light"] {
+    table {
+        background: white !important;
+    }
+    
+    th {
+        background: $light-input-bg !important;
+        color: $light-text !important;
+    }
+    
+    td {
+        color: $light-text !important;
+        border-color: $light-divider !important;
+    }
+    
+    tr:hover td {
+        background: $light-input-bg !important;
+    }
+}
+
+// Light mode - Modals & Popups
+[data-theme="light"] {
+    .reaction-popup,
+    .share-modal-content,
+    .dropdown-menu {
+        background: white !important;
+        border-color: $light-divider !important;
+        box-shadow: $light-shadow-lg !important;
+    }
+}
+
+// Light mode - Preloader
+[data-theme="light"] .preloader {
+    background: $light-bg !important;
+}

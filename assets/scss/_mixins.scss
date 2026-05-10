@@ -1,0 +1,112 @@
+// =============================================
+//   LifeFlow Blood Bank - SASS Mixins
+// =============================================
+
+// Flexbox mixins
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin flex-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+@mixin flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+// Card styling
+@mixin card-style {
+    background: var(--card-bg);
+    border-radius: $radius-lg;
+    padding: 30px;
+    border: 1px solid var(--divider);
+}
+
+// Glass effect
+@mixin glass-effect {
+    background: var(--bg-glass);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--divider);
+}
+
+// Button base
+@mixin btn-base {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 14px 28px;
+    border-radius: $radius-md;
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: all $transition-normal;
+}
+
+// Responsive breakpoints
+@mixin mobile {
+    @media (max-width: 768px) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (max-width: 1024px) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (min-width: 1025px) {
+        @content;
+    }
+}
+
+// Input field
+@mixin input-field {
+    width: 100%;
+    padding: 16px 20px;
+    background: var(--input-bg);
+    border: 2px solid var(--input-border);
+    border-radius: $radius-md;
+    color: var(--text-primary);
+    font-size: 1rem;
+    transition: all $transition-fast;
+    
+    &:focus {
+        outline: none;
+        border-color: $primary;
+    }
+    
+    &::placeholder {
+        color: var(--text-muted);
+    }
+}
+
+// Gradient text
+@mixin gradient-text {
+    background: linear-gradient(135deg, $primary, $accent);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+// Avatar circle
+@mixin avatar($size: 40px) {
+    width: $size;
+    height: $size;
+    border-radius: 50%;
+    background: linear-gradient(135deg, $primary, $accent);
+    @include flex-center;
+    color: white;
+    font-weight: 600;
+    font-size: $size * 0.35;
+}

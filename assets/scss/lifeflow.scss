@@ -1,0 +1,404 @@
+// =============================================
+//   LifeFlow Blood Bank - Main SCSS File
+//   Compile with: sass lifeflow.scss ../css/lifeflow.css
+// =============================================
+
+// Import partials
+@import 'variables';
+@import 'mixins';
+@import 'themes';
+
+// ==================== Reset & Base ====================
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: $font-body;
+    background: var(--bg-dark);
+    color: var(--text-primary);
+    line-height: 1.6;
+    min-height: 100vh;
+    overflow-x: hidden;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+// ==================== Typography ====================
+h1, h2, h3, h4, h5, h6 {
+    font-family: $font-heading;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.text-gradient {
+    @include gradient-text;
+}
+
+.page-title {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.page-subtitle {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+}
+
+// ==================== Buttons ====================
+.btn {
+    @include btn-base;
+    
+    &--primary {
+        background: linear-gradient(135deg, $primary, $primary-dark);
+        color: white;
+        box-shadow: 0 4px 15px rgba($primary, 0.4);
+        
+        &:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba($primary, 0.5);
+        }
+    }
+    
+    &--glass {
+        @include glass-effect;
+        color: var(--text-primary);
+        
+        &:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+    }
+    
+    &--outline {
+        background: transparent;
+        border: 2px solid var(--divider);
+        color: var(--text-primary);
+        
+        &:hover {
+            border-color: $primary;
+            color: $primary;
+        }
+    }
+    
+    &--small {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+    
+    &--full {
+        width: 100%;
+    }
+}
+
+// ==================== Cards ====================
+.card {
+    @include card-style;
+    transition: all $transition-normal;
+    
+    &:hover {
+        transform: translateY(-3px);
+        box-shadow: var(--shadow-lg);
+    }
+}
+
+// ==================== Form Elements ====================
+input, textarea, select {
+    @include input-field;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    
+    label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 500;
+        color: var(--text-secondary);
+    }
+}
+
+// ==================== Navbar ====================
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px 0;
+    z-index: 1000;
+    background: var(--navbar-bg);
+    backdrop-filter: blur(10px);
+    box-shadow: var(--shadow-md);
+    transition: all $transition-normal;
+    
+    &__container {
+        @include flex-between;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+    
+    &__logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-family: $font-heading;
+        font-size: 1.5rem;
+        font-weight: 700;
+        
+        .logo-icon {
+            color: $primary;
+        }
+    }
+    
+    &__menu {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        
+        > li {
+            position: relative;
+            
+            > a {
+                display: flex;
+                align-items: center;
+                gap: 6px;
+                padding: 10px 18px;
+                color: var(--text-secondary);
+                font-weight: 500;
+                border-radius: $radius-md;
+                transition: all $transition-fast;
+                
+                &:hover {
+                    color: var(--text-primary);
+                    background: var(--bg-glass);
+                }
+            }
+        }
+    }
+    
+    &__actions {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+    
+    &__user {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 8px 16px;
+        background: var(--input-bg);
+        border-radius: $radius-xl;
+        
+        .avatar {
+            @include avatar(35px);
+        }
+    }
+}
+
+// ==================== Theme Toggle ====================
+.theme-toggle {
+    position: relative;
+    width: 50px;
+    height: 26px;
+    background: var(--input-bg);
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    padding: 3px;
+    transition: all 0.3s ease;
+    
+    &-slider {
+        position: absolute;
+        top: 3px;
+        left: 3px;
+        width: 20px;
+        height: 20px;
+        background: white;
+        border-radius: 50%;
+        transition: all 0.3s ease;
+        @include flex-center;
+        font-size: 12px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        
+        .fa-moon {
+            display: block;
+            color: $dark-secondary;
+        }
+        .fa-sun {
+            display: none;
+        }
+    }
+}
+
+[data-theme="light"] {
+    .theme-toggle-slider {
+        transform: translateX(24px);
+        background: $primary;
+        
+        .fa-moon { display: none; }
+        .fa-sun { display: block; color: white; }
+    }
+}
+
+// ==================== Preloader ====================
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--bg-dark);
+    @include flex-center;
+    z-index: 9999;
+    transition: opacity 0.5s ease;
+    
+    &.hidden {
+        opacity: 0;
+        pointer-events: none;
+    }
+    
+    .loader {
+        width: 60px;
+        height: 80px;
+        position: relative;
+        animation: pulse 1.5s ease-in-out infinite;
+        
+        svg {
+            fill: $primary;
+        }
+    }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+// ==================== Toast Notifications ====================
+.toast-container {
+    position: fixed;
+    top: 100px;
+    right: 20px;
+    z-index: 10000;
+    @include flex-column;
+    gap: 10px;
+}
+
+.toast {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 15px 20px;
+    background: var(--card-bg);
+    border-radius: $radius-md;
+    border-left: 4px solid;
+    box-shadow: var(--shadow-lg);
+    animation: slideIn 0.3s ease;
+    
+    &--success { border-color: $success; }
+    &--error { border-color: $danger; }
+    &--info { border-color: $info; }
+    &--warning { border-color: $warning; }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+// ==================== Responsive ====================
+@include mobile {
+    .page-title {
+        font-size: 1.8rem;
+    }
+    
+    .navbar__menu {
+        display: none;
+    }
+    
+    .card {
+        padding: 20px;
+    }
+}
+
+// ==================== Footer ====================
+.footer {
+    background: var(--bg-secondary);
+    padding: 60px 20px 30px;
+    margin-top: 80px;
+    border-top: 1px solid var(--divider);
+    
+    &__content {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr;
+        gap: 40px;
+        
+        @include mobile {
+            grid-template-columns: 1fr;
+        }
+    }
+    
+    &__brand {
+        p {
+            color: var(--text-secondary);
+            margin: 15px 0;
+        }
+    }
+    
+    &__links {
+        h4 {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        
+        a {
+            display: block;
+            padding: 8px 0;
+            color: var(--text-secondary);
+            transition: color $transition-fast;
+            
+            &:hover {
+                color: $primary;
+            }
+        }
+    }
+    
+    &__bottom {
+        text-align: center;
+        padding-top: 30px;
+        margin-top: 30px;
+        border-top: 1px solid var(--divider);
+        color: var(--text-muted);
+    }
+}

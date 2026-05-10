@@ -1,0 +1,40 @@
+# =============================================
+#   LifeFlow Blood Bank - Git Ignore
+# =============================================
+
+# Dependencies
+/node_modules/
+/vendor/phpmailer/phpmailer/
+
+# Environment & Config
+.env
+config/mail.php
+config/firebase.php
+
+# IDE
+.idea/
+.vscode/
+*.sublime-*
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+error_log
+
+# Uploads (keep structure, ignore files)
+uploads/posts/*
+!uploads/posts/.gitkeep
+
+# Cache
+*.cache
+
+# Compiled SASS
+*.css.map
+
+# Backup files
+*.bak
+*.backup
+*~
