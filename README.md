@@ -153,11 +153,11 @@ users, admins, donor, stock, request, posts, comments, reactions, ratings
 
 **Forhadul Islam**
 - Web Technology Lab Project
-- PortCity International University
+- Port City International University
 
 ## 📄 License
 
-This project is licensed under the MIT License.
+This project is licensed under the -- License.
 
 ---
 
