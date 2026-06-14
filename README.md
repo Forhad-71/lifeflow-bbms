@@ -151,9 +151,9 @@ users, admins, donor, stock, request, posts, comments, reactions, ratings
 
 ## 👨‍💻 Author
 
-**Your Name**
+**Forhadul Islam**
 - Web Technology Lab Project
-- University Name
+- PortCity International University
 
 ## 📄 License
 
